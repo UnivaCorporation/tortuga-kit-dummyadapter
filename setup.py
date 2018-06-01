@@ -11,3 +11,26 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from setuptools import find_packages, setup
+
+
+setup(
+    name='tortuga-dummy-adapter',
+    version='6.3.0',
+    url='http://univa.com',
+    author='Univa Corporation',
+    author_email='engineering@univa.com',
+    license='Apache 2.0',
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
+    namespace_packages=[
+        'tortuga',
+        'tortuga.resourceAdapter'
+    ],
+    zip_safe=False,
+    install_requires=[
+    ],
+    scripts=[
+    ]
+)

@@ -11,3 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+from tortuga.kit.mixins import ResourceAdapterMixin
+from tortuga.kit.installer import KitInstallerBase
+
+
+class DummyKitInstaller(ResourceAdapterMixin, KitInstallerBase):
+    config_files = [
+    ]
+    puppet_modules = ['univa-tortuga_kit_dummyadapter']
+    resource_adapter_name = 'dummy'
