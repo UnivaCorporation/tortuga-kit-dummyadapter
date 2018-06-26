@@ -8,6 +8,7 @@ from tortuga.db.models.hardwareProfile import HardwareProfile
 from tortuga.db.models.nic import Nic
 from tortuga.db.models.node import Node
 from tortuga.db.models.softwareProfile import SoftwareProfile
+from tortuga.node import state
 from tortuga.objects import resourceadapter_settings as settings
 from tortuga.resourceAdapter.resourceAdapter import ResourceAdapter
 
@@ -26,7 +27,12 @@ class Dummyadapter(ResourceAdapter):
     #
     # The various states that a node will transition through, in order
     #
-    STATE_TRANSITIONS = ['Created', 'Provisioned', 'Installed']
+    STATE_TRANSITIONS = [
+        state.NODE_STATE_CREATED,
+        state.NODE_STATE_PROVISIONED,
+        state.NODE_STATE_PENDING_INSTALLED,
+        state.NODE_STATE_INSTALLED
+    ]
 
     def start(self, addNodesRequest: dict, dbSession: Session,
               dbHardwareProfile: HardwareProfile,
