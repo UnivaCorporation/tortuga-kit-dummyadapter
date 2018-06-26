@@ -30,7 +30,6 @@ class Dummyadapter(ResourceAdapter):
     STATE_TRANSITIONS = [
         state.NODE_STATE_CREATED,
         state.NODE_STATE_PROVISIONED,
-        state.NODE_STATE_PENDING_INSTALLED,
         state.NODE_STATE_INSTALLED
     ]
 
