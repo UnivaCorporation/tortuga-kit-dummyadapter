@@ -9,7 +9,7 @@ from tortuga.db.models.nic import Nic
 from tortuga.db.models.node import Node
 from tortuga.db.models.softwareProfile import SoftwareProfile
 from tortuga.node import state
-from tortuga.objects import resourceadapter_settings as settings
+from tortuga.resourceAdapterConfiguration import settings
 from tortuga.resourceAdapter.resourceAdapter import ResourceAdapter
 
 
@@ -18,9 +18,13 @@ class Dummyadapter(ResourceAdapter):
 
     settings = {
         'state': settings.StringSetting(
-            required=True,
             description='The final state of the node after creation',
-            default='Installed'
+            default=state.NODE_STATE_INSTALLED,
+            values=[
+                state.NODE_STATE_CREATED,
+                state.NODE_STATE_PROVISIONED,
+                state.NODE_STATE_INSTALLED
+            ]
         ),
     }
 
